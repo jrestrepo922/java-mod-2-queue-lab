@@ -78,13 +78,18 @@ public class Main {
         // free a table that is currently being use
         if(!table1.equals("")){
             restaurant.getTable().put("Table 1", ""); 
-            String customerToBeSeated = restaurant.getWaitList().remove();
-            restaurant.getTable().put("Table 1", customerToBeSeated);
+            if(restaurant.getWaitList().isEmpty() == false){
+                String customerToBeSeated = restaurant.getWaitList().remove();
+                restaurant.getTable().put("Table 1", customerToBeSeated);
+            }
 
         } else if(!table2.equals("")){
             restaurant.getTable().put("Table 2", ""); 
-            String customerToBeSeated = restaurant.getWaitList().remove();
-            restaurant.getTable().put("Table 2", customerToBeSeated);
+            if(restaurant.getWaitList().isEmpty() == false){
+                String customerToBeSeated = restaurant.getWaitList().remove();
+                restaurant.getTable().put("Table 2", customerToBeSeated);
+            }
+
         }
         System.out.println("Tables: " + restaurant.getTable());
         System.out.println("Queue: " + restaurant.getWaitList()); 
